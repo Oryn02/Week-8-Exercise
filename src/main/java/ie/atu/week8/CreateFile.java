@@ -1,6 +1,7 @@
 package ie.atu.week8;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class CreateFile
 {
@@ -11,7 +12,8 @@ public class CreateFile
         String content = "Details to write";
         try
         {
-            PrintWriter myWriter = new PrintWriter(new FileWriter(myFile,true) );
+            PrintWriter myWriter = new PrintWriter(
+                    new FileWriter(myFile,true) );
             myWriter.println("gg's");
             myWriter.println("Wp");
             myWriter.close();
@@ -19,6 +21,23 @@ public class CreateFile
         catch (IOException e)
         {
             e.printStackTrace();
+        }
+
+
+        Scanner inputfile = null;
+        try
+        {
+            inputfile = new Scanner(new File("myFile2.txt"));
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+
+        while (inputfile.hasNext())
+        {
+            String str = inputfile.nextLine();
+            System.out.println(str);
         }
 
     }
