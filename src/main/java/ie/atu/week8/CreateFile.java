@@ -11,8 +11,9 @@ public class CreateFile
         String content = "Details to write";
         try
         {
-            FileWriter myWriter = new FileWriter(myFile,true);
-            myWriter.write("gg's");
+            PrintWriter myWriter = new PrintWriter(new FileWriter(myFile,true) );
+            myWriter.println("gg's");
+            myWriter.println("Wp");
             myWriter.close();
         }
         catch (IOException e)
